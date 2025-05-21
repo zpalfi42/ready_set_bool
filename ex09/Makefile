@@ -1,4 +1,4 @@
-NAME =	evalset
+NAME =	powerset
 
 SRC_DIR		=	./src/
 OBJ_DIR		=	obj/

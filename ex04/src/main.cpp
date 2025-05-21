@@ -3,6 +3,7 @@
 #include <stack>
 #include <map>
 #include <vector>
+#include <set>
 
 bool    eval_formula(std::string formula)
 {
@@ -52,31 +53,33 @@ bool    eval_formula(std::string formula)
 
 void    print_truth_table(std::string formula)
 {
-    std::vector<char>                       vars;
+    std::set<char>                       vars;
     std::vector<std::map<char, bool>>  combinations_vector;
 
     for (size_t i = 0; i < formula.size(); i++)
         if (formula[i] >= 'A' && formula[i] <= 'Z')
-            vars.push_back(formula[i]);
+            vars.insert(formula[i]);
 
     unsigned int    num_combinations = 1 << vars.size();
 
     for (size_t i = 0; i < num_combinations; i++)
     {
         std::map<char, bool>    current;
-        for (size_t j = 0; j < vars.size(); j++)
+        size_t  j = 0;
+        for (std::set<char>::iterator it = vars.begin(); it != vars.end(); it++)
         {
-            char    var = vars[j];
+            char    var = *it;
 
             bool    value = (i >> j) & 1;
             current[var] = value;
+            j++;
         }
         combinations_vector.push_back(current);
         current.clear();
     }
 
-    for (size_t i = 0; i < vars.size(); i++)
-        std::cout << "\t" << vars[i] << "\t|";
+    for (std::set<char>::iterator it = vars.begin(); it != vars.end(); it++)
+        std::cout << "\t" << *it << "\t|";
     std::cout << "\t=\t|" << std::endl;
 
     for (size_t i = 0; i < combinations_vector.size(); i++)
@@ -89,7 +92,6 @@ void    print_truth_table(std::string formula)
         }
         for (size_t i = 0; i < formula.size(); i++)
         {
-            // std::cout << std::endl << current[formula[i]];
             if (formula[i] >= 'A' && formula[i] <= 'Z')
             {
                 if (current[formula[i]])
@@ -107,5 +109,5 @@ void    print_truth_table(std::string formula)
 
 int main()
 {
-    print_truth_table("AB&C|");
+    print_truth_table("AB&A|");
 }
