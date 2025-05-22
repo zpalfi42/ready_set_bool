@@ -41,5 +41,46 @@ u_int32_t   multiplier(u_int32_t a, u_int32_t b)
 
 int main()
 {
-    std::cout << multiplier(9, 5) << std::endl;
+    // Test Case 1: Simple multiplication
+    u_int32_t num1_1 = 9;
+    u_int32_t num2_1 = 5;
+    std::cout << num1_1 << " * " << num2_1 << " = " << multiplier(num1_1, num2_1) << std::endl;
+
+    // Test Case 2: One number is zero
+    u_int32_t num1_2 = 7;
+    u_int32_t num2_2 = 0;
+    std::cout << num1_2 << " * " << num2_2 << " = " << multiplier(num1_2, num2_2) << std::endl;
+
+    // Test Case 3: Other number is zero
+    u_int32_t num1_3 = 0;
+    u_int32_t num2_3 = 12;
+    std::cout << num1_3 << " * " << num2_3 << " = " << multiplier(num1_3, num2_3) << std::endl;
+
+    // Test Case 4: Both numbers are zero
+    u_int32_t num1_4 = 0;
+    u_int32_t num2_4 = 0;
+    std::cout << num1_4 << " * " << num2_4 << " = " << multiplier(num1_4, num2_4) << std::endl;
+
+    // Test Case 5: Multiplication by 1
+    u_int32_t num1_5 = 42;
+    u_int32_t num2_5 = 1;
+    std::cout << num1_5 << " * " << num2_5 << " = " << multiplier(num1_5, num2_5) << std::endl;
+
+    // Test Case 6: Larger numbers
+    u_int32_t num1_6 = 100;
+    u_int32_t num2_6 = 25;
+    std::cout << num1_6 << " * " << num2_6 << " = " << multiplier(num1_6, num2_6) << std::endl;
+
+    // Test Case 7: Another set of larger numbers
+    u_int32_t num1_7 = 123;
+    u_int32_t num2_7 = 45;
+    std::cout << num1_7 << " * " << num2_7 << " = " << multiplier(num1_7, num2_7) << std::endl;
+
+    // Test Case 8: Maximum values (results in overflow if not handled by standard type sizes, but bitwise multiplication handles it)
+    // Note: The result might wrap around if it exceeds u_int32_t max.
+    u_int32_t num1_8 = 65535; // Example: equivalent to 2^16 - 1
+    u_int32_t num2_8 = 65535; // Example: equivalent to 2^16 - 1
+    std::cout << num1_8 << " * " << num2_8 << " = " << multiplier(num1_8, num2_8) << std::endl;
+
+    return 0;
 }

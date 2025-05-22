@@ -56,5 +56,45 @@ u_int32_t   adder(u_int32_t a, u_int32_t b)
 
 int main()
 {
-    std::cout << adder(9, 5) << std::endl;
+    // Test Case 1: Simple addition
+    u_int32_t num1_1 = 5;
+    u_int32_t num2_1 = 3;
+    std::cout << num1_1 << " + " << num2_1 << " = " << adder(num1_1, num2_1) << std::endl;
+
+    // Test Case 2: Addition with carry
+    u_int32_t num1_2 = 7;
+    u_int32_t num2_2 = 8;
+    std::cout << num1_2 << " + " << num2_2 << " = " << adder(num1_2, num2_2) << std::endl;
+
+    // Test Case 3: One number is zero
+    u_int32_t num1_3 = 10;
+    u_int32_t num2_3 = 0;
+    std::cout << num1_3 << " + " << num2_3 << " = " << adder(num1_3, num2_3) << std::endl;
+
+    // Test Case 4: Both numbers are zero
+    u_int32_t num1_4 = 0;
+    u_int32_t num2_4 = 0;
+    std::cout << num1_4 << " + " << num2_4 << " = " << adder(num1_4, num2_4) << std::endl;
+
+    // Test Case 5: Large numbers (within u_int32_t limits)
+    u_int32_t num1_5 = 2000000000; // 2 billion
+    u_int32_t num2_5 = 1500000000; // 1.5 billion
+    std::cout << num1_5 << " + " << num2_5 << " = " << adder(num1_5, num2_5) << std::endl;
+
+    // Test Case 6: Edge case - max value
+    u_int32_t num1_6 = __UINT32_MAX__ - 1; // max - 1
+    u_int32_t num2_6 = 1;
+    std::cout << num1_6 << " + " << num2_6 << " = " << adder(num1_6, num2_6) << std::endl;
+
+    // Test Case 7: Another edge case - max value
+    u_int32_t num1_7 = __UINT32_MAX__;
+    u_int32_t num2_7 = 0;
+    std::cout << num1_7 << " + " << num2_7 << " = " << adder(num1_7, num2_7) << std::endl;
+
+    // Test Case 8: Max value with a small number (demonstrates overflow if not handled by u_int32_t arithmetic)
+    u_int32_t num1_8 = __UINT32_MAX__;
+    u_int32_t num2_8 = 5;
+    std::cout << num1_8 << " + " << num2_8 << " = " << adder(num1_8, num2_8) << std::endl;
+
+    return 0;
 }

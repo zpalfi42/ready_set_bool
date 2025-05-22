@@ -75,21 +75,13 @@ bool    print_truth_table(std::string formula)
         current.clear();
     }
 
-    // for (size_t i = 0; i < vars.size(); i++)
-    //     std::cout << "\t" << vars[i] << "\t|";
-    // std::cout << "\t=\t|" << std::endl;
-
     for (size_t i = 0; i < combinations_vector.size(); i++)
     {
         std::map<char, bool>    current = combinations_vector[i];
         std::string             curr_formula;
-        // for (std::map<char, bool>::iterator it = current.begin(); it != current.end(); it++)
-        // {
-        //     std::cout << "\t" << it->second << "\t|";
-        // }
+
         for (size_t i = 0; i < formula.size(); i++)
         {
-            // std::cout << std::endl << current[formula[i]];
             if (formula[i] >= 'A' && formula[i] <= 'Z')
             {
                 if (current[formula[i]])
@@ -101,7 +93,6 @@ bool    print_truth_table(std::string formula)
                 curr_formula += formula[i];
         }
         
-        // std::cout << "\t" << eval_formula(curr_formula) << "\t|" << std::endl;
         if (eval_formula(curr_formula))
             return true;
     }
@@ -115,8 +106,19 @@ bool    sat(std::string formula)
 
 int main()
 {
-    std::cout << ((sat("AB|") ) ? "true" : "false") << std::endl;
-    std::cout << ((sat("AB&") ) ? "true" : "false") << std::endl;
-    std::cout << ((sat("AA!&")) ? "true" : "false") << std::endl;
-    std::cout << ((sat("AA^") ) ? "true" : "false") << std::endl;
+    std::cout << "Testing sat function:" << std::endl;
+
+    std::cout << "Formula: AB| -> Satisfiable: " << (sat("AB|") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AB& -> Satisfiable: " << (sat("AB&") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AA!& -> Satisfiable: " << (sat("AA!&") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AA^ -> Satisfiable: " << (sat("AA^") ? "true" : "false") << std::endl;
+    std::cout << "Formula: A -> Satisfiable: " << (sat("A") ? "true" : "false") << std::endl;
+    std::cout << "Formula: A! -> Satisfiable: " << (sat("A!") ? "true" : "false") << std::endl;
+    std::cout << "Formula: PQR&& -> Satisfiable: " << (sat("PQR&&") ? "true" : "false") << std::endl;
+    std::cout << "Formula: PQR&| -> Satisfiable: " << (sat("PQR&|") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AB= -> Satisfiable: " << (sat("AB=") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AB> -> Satisfiable: " << (sat("AB>") ? "true" : "false") << std::endl;
+    std::cout << "Formula: AA>! -> Satisfiable: " << (sat("AA>!") ? "true" : "false") << std::endl;
+
+    return 0;
 }

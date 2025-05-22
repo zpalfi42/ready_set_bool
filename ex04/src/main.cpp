@@ -109,5 +109,40 @@ void    print_truth_table(std::string formula)
 
 int main()
 {
+    std::cout << "--- Truth Table for A ---" << std::endl;
+    print_truth_table("A");
+    std::cout << std::endl;
+
+    std::cout << "--- Truth Table for A! ---" << std::endl;
+    print_truth_table("A!");
+    std::cout << std::endl;
+    
+    std::cout << "--- Truth Table for AB& ---" << std::endl;
+    print_truth_table("AB&");
+    std::cout << std::endl;
+    
+    std::cout << "--- Truth Table for AB| ---" << std::endl;
+    print_truth_table("AB|");
+    std::cout << std::endl;
+
+    std::cout << "--- Truth Table for AB^ ---" << std::endl;
+    print_truth_table("AB^");
+    std::cout << std::endl;
+    
+    std::cout << "--- Truth Table for AB> ---" << std::endl;
+    print_truth_table("AB>");
+    std::cout << std::endl;
+
+    std::cout << "--- Truth Table for AB= ---" << std::endl;
+    print_truth_table("AB=");
+    std::cout << std::endl;
+    
+    std::cout << "--- Truth Table for AB&A| ---" << std::endl;
     print_truth_table("AB&A|");
+    std::cout << std::endl;
+    
+    std::cout << "--- Truth Table for AB&CD&| ---" << std::endl;
+    print_truth_table("AB&CD&|");
+    std::cout << std::endl;
+    return 0;
 }

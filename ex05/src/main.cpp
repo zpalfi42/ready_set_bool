@@ -250,9 +250,18 @@ std::string negation_normal_form(std::string formula)
 
 int main()
 {
-    std::cout << negation_normal_form("AB&!") << std::endl;
-    std::cout << negation_normal_form("AB|!") << std::endl;
-    std::cout << negation_normal_form("AB>") << std::endl;
-    std::cout << negation_normal_form("AB=") << std::endl;
-    std::cout << negation_normal_form("AB|C&!") << std::endl;
+    std::cout << "Testing negation_normal_form:" << std::endl;
+
+    std::cout << "Formula: AB&! -> NNF: " << negation_normal_form("AB&!") << std::endl;
+    std::cout << "Formula: AB|! -> NNF: " << negation_normal_form("AB|!") << std::endl;
+    std::cout << "Formula: AB> -> NNF: " << negation_normal_form("AB>") << std::endl;
+    std::cout << "Formula: AB= -> NNF: " << negation_normal_form("AB=") << std::endl;
+    std::cout << "Formula: AB|C&! -> NNF: " << negation_normal_form("AB|C&!") << std::endl;
+    std::cout << "Formula: A! -> NNF: " << negation_normal_form("A!") << std::endl;
+    std::cout << "Formula: A -> NNF: " << negation_normal_form("A") << std::endl;
+    std::cout << "Formula: ABC&& -> NNF: " << negation_normal_form("ABC&&") << std::endl;
+    std::cout << "Formula: AB>! -> NNF: " << negation_normal_form("AB>!") << std::endl;
+    std::cout << "Formula: AB=! -> NNF: " << negation_normal_form("AB=!") << std::endl;
+    std::cout << "Formula: AB>C> -> NNF: " << negation_normal_form("AB>C>") << std::endl;
+    return 0;
 }
